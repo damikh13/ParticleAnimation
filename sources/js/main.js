@@ -30,6 +30,7 @@ window.onload = function () {
       this.velocityY =
         Math.random() * properties.particleVelocity * 2 -
         properties.particleVelocity;
+      this.life = properties.particleLifeTime  * 60;
       this.life = properties.particleLifeTime * Math.random() * 60;
     }
 
@@ -78,7 +79,7 @@ window.onload = function () {
   function reDrawParticles() {
     for (let i in particles) {
       particles[i].position();
-      particles[i].reCalculateTimeLife();
+      // particles[i].reCalculateTimeLife();
       particles[i].drawParticle();
     }
   }
