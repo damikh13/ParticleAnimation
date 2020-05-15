@@ -12,7 +12,8 @@ window.onload = function () {
     particlesCount: +prompt("particlesCount?", 60),
     minLength: +prompt("length?", 150),
     particleLifeTime: 6,
-    divideOpacityBy: +prompt("divide opacity by?", 1)
+    divideOpacityBy: +prompt("divide opacity by?", 1),
+    lineWidth: "0,5",
   };
 
   window.onresize = function () {
@@ -95,6 +96,7 @@ window.onload = function () {
         length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
         if (length < properties.minLength) {
           opacity = (1 - length / properties.minLength) / properties.divideOpacityBy;
+          ctx.lineWidth = properties.lineWidth;
           ctx.beginPath();
           ctx.moveTo(x1, y1);
           ctx.lineTo(x2, y2);
